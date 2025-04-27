@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>File Explorer</title>
+  <link rel="stylesheet" href="../css/apps.css">
+</head>
+<body>
+  <input id="fileInput" type="text" placeholder="New file name" style="width:100%; margin-bottom:10px;">
+  <button onclick="createFile()">Create</button>
+
+  <ul id="fileList"></ul>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+
+    function createFile() {
+      if (fileInput.value.trim() !== '') {
+        const li = document.createElement('li');
+        li.textContent = fileInput.value;
+        li.onclick = () => {
+          if (confirm('Delete this file?')) {
+            li.remove();
+            saveFiles();
+          }
+        };
+        fileList.appendChild(li);
+        saveFiles();
+        fileInput.value = '';
+      }
+    }
+
+    function saveFiles() {
+      localStorage.setItem('nebula_files', fileList.innerHTML);
+    }
+
+    fileList.innerHTML = localStorage.getItem('nebula_files') || '';
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nebula OS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/window.css">
+</head>
+<body>
+
+<div id="boot-screen">
+  <h1>Starting Nebula OS...</h1>
+  <div id="boot-loader"></div>
+</div>
+
+<div id="lock-screen" style="display:none;">
+  <h1>🔒 Nebula OS is Locked</h1>
+  <button onclick="unlockNebula()">Login</button>
+</div>
+
+<div id="desktop" style="display:none;">
+  <div class="desktop-icon" id="icon-my-computer" draggable="true" ondblclick="openApp('my-computer', 'fa-desktop', 'My Computer')">
+    <i class="fas fa-desktop"></i><br>My Computer
+  </div>
+
+  <div class="desktop-icon" id="icon-notepad" draggable="true" ondblclick="openApp('notepad', 'fa-file-alt', 'Notepad')">
+    <i class="fas fa-file-alt"></i><br>Notepad
+  </div>
+
+  <div class="desktop-icon" id="icon-calculator" draggable="true" ondblclick="openApp('calculator', 'fa-calculator', 'Calculator')">
+    <i class="fas fa-calculator"></i><br>Calculator
+  </div>
+
+  <div class="desktop-icon" id="icon-todo" draggable="true" ondblclick="openApp('todo', 'fa-list-check', 'Todo List')">
+    <i class="fas fa-list-check"></i><br>Todo List
+  </div>
+
+  <div class="desktop-icon" id="icon-file-explorer" draggable="true" ondblclick="openApp('file-explorer', 'fa-folder-open', 'File Explorer')">
+    <i class="fas fa-folder-open"></i><br>Files
+  </div>
+
+  <div class="desktop-icon" id="icon-settings" draggable="true" ondblclick="openApp('settings', 'fa-gear', 'Settings')">
+    <i class="fas fa-gear"></i><br>Settings
+  </div>
+
+  <div class="desktop-icon" id="icon-chat" draggable="true" ondblclick="openApp('chat', 'fa-comments', 'Nebula Chat')">
+    <i class="fas fa-comments"></i><br>Chat
+  </div>
+
+  <div class="desktop-icon" id="icon-recycle-bin" draggable="true" ondblclick="openApp('recycle-bin', 'fa-trash', 'Recycle Bin')">
+    <i class="fas fa-trash"></i><br>Recycle Bin
+  </div>
+</div>
+
+<div id="taskbar" style="display:none;">
+  <div id="start-button" onclick="toggleStartMenu()">Start</div>
+  <div id="taskbar-apps"></div>
+  <div id="clock"></div>
+</div>
+
+<div id="start-menu" style="display:none; background: #c0c0c0; padding: 10px; width: 150px; border: 2px outset white; position: absolute; bottom: 40px; left: 10px;">
+    <div class="start-menu-item" onclick="shutdown()">Shutdown</div>
+    <div class="start-menu-item" onclick="lockNebula()">Log Off</div>
+    <div class="start-menu-item" onclick="openApp('install-wizard', 'fa-download', 'Install Wizard')">Install Software</div>
+</div>
+
+<ul id="context-menu">
+  <li onclick="refreshPage()">Refresh</li>
+  <li onclick="createNewFolder()">New Folder</li>
+  <li onclick="showProperties()">Properties</li>
+</ul>
+
+<div id="properties-window" style="display:none;">
+  <h3>Properties</h3>
+  <p id="prop-name"></p>
+  <p id="prop-type"></p>
+  <p id="prop-created"></p>
+  <button onclick="closeProperties()">Close</button>
+</div>
+
+<script src="boot.js"></script>
+<script src="context-menu.js"></script>
+<script src="js/window.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

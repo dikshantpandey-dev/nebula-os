@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Computer</title>
+  <link rel="stylesheet" href="../css/apps.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background: #c0c0c0;
+      font-family: Tahoma, Arial, sans-serif;
+      padding: 10px;
+    }
+
+    .drive {
+      width: 120px;
+      height: 120px;
+      text-align: center;
+      margin: 10px;
+      float: left;
+      cursor: pointer;
+      padding: 10px;
+      background: white;
+      border: 2px ridge #808080;
+      box-shadow: inset 1px 1px 2px #fff, inset -1px -1px 2px #000;
+    }
+
+    .drive i {
+      font-size: 40px;
+      margin-bottom: 5px;
+      display: block;
+      color: black;
+    }
+
+    .drive:hover {
+      background: #000080;
+      color: white;
+      border: 2px outset white;
+    }
+  </style>
+</head>
+<body>
+  <h2>My Computer</h2>
+
+  <div class="drive" onclick="openDrive('A:\\')">
+    <i class="fas fa-floppy-disk"></i><br>Floppy Disk (A:)
+  </div>
+
+  <div class="drive" onclick="openDrive('C:\\')">
+    <i class="fas fa-hdd"></i><br>Hard Disk (C:)
+  </div>
+
+  <div class="drive" onclick="openDrive('D:\\')">
+    <i class="fas fa-compact-disc"></i><br>CD-ROM (D:)
+  </div>
+
+  <script>
+    function openDrive(drive) {
+      alert('Opening drive: ' + drive + '\n(Error: Drive is empty)');
+    }
+  </script>
+</body>
+</html>

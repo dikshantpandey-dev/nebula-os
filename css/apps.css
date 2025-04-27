@@ -1,0 +1,27 @@
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #d3d3d3;
+    padding: 10px;
+  }
+  
+  input, textarea, button {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding: 5px;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  li {
+    background: white;
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  

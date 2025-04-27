@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings</title>
+  <link rel="stylesheet" href="../css/apps.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background: #c0c0c0;
+      font-family: Tahoma, Arial, sans-serif;
+      padding: 20px;
+    }
+
+    button {
+      margin: 10px 5px 0 0;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      background: #c0c0c0;
+      border: 2px outset white;
+    }
+
+    h2, h3 {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Settings</h2>
+
+<h3>Change Desktop Background Color:</h3>
+<button onclick="changeBackground('#008080')">Classic Teal</button>
+<button onclick="changeBackground('#c0c0c0')">Light Gray</button>
+<button onclick="changeBackground('#000080')">Dark Blue</button>
+
+<h3>Change Desktop Icon Size:</h3>
+<button onclick="setIconSize('small')">Small Icons</button>
+<button onclick="setIconSize('large')">Large Icons</button>
+
+<h3>Danger Zone:</h3>
+<button style="background:red; color:white;" onclick="crashNebula()">Crash Nebula OS (Fake BSOD)</button>
+
+<script>
+function changeBackground(color) {
+  parent.document.body.style.background = color;
+  localStorage.setItem('nebula_background', color);
+}
+
+function setIconSize(size) {
+  parent.changeDesktopIconSize(size);
+  localStorage.setItem('nebula_icon_size', size);
+}
+
+function crashNebula() {
+  parent.crashNebula();
+}
+</script>
+
+</body>
+</html>

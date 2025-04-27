@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nebula Chat</title>
+  <link rel="stylesheet" href="../css/apps.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background: #c0c0c0;
+      font-family: Tahoma, Arial, sans-serif;
+      padding: 10px;
+    }
+
+    #chat-window {
+      width: 100%;
+      height: 300px;
+      background: white;
+      border: 2px inset #808080;
+      padding: 10px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    #chat-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 2px inset #808080;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 5px 15px;
+      font-size: 14px;
+      cursor: pointer;
+      background: #c0c0c0;
+      border: 2px outset white;
+    }
+  </style>
+</head>
+<body>
+  <h2>Nebula Chat</h2>
+
+  <div id="chat-window"></div>
+
+  <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="if(event.keyCode==13) sendMessage()">
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    const chatWindow = document.getElementById('chat-window');
+    const chatInput = document.getElementById('chat-input');
+
+    const replies = [
+      "I'm currently offline.",
+      "Try again later!",
+      "Nebula Chat server not responding.",
+      "Hello there, traveler!",
+      "Welcome to 1995!",
+      "Your message has been delivered to space 🌌.",
+      "NebulaBot: Beep Boop 🤖.",
+      "Stay retro, friend!",
+      "This feels like dial-up speed!"
+    ];
+
+    function sendMessage() {
+      const text = chatInput.value.trim();
+      if (text === "") return;
+
+      chatWindow.innerHTML += `<div><b>You:</b> ${text}</div>`;
+      chatInput.value = "";
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+
+      setTimeout(() => {
+        const botReply = replies[Math.floor(Math.random() * replies.length)];
+        chatWindow.innerHTML += `<div><b>NebulaBot:</b> ${botReply}</div>`;
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }, 800);
+    }
+  </script>
+</body>
+</html>

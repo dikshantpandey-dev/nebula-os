@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Install Wizard</title>
+  <link rel="stylesheet" href="../css/apps.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background: #c0c0c0;
+      font-family: Tahoma, Arial, sans-serif;
+      padding: 20px;
+    }
+
+    #wizard {
+      background: white;
+      border: 2px inset #808080;
+      padding: 20px;
+      width: 300px;
+      margin: 50px auto;
+      text-align: center;
+      box-shadow: 4px 4px #404040;
+    }
+
+    #wizard h2 {
+      margin-top: 0;
+    }
+
+    #wizard button {
+      margin-top: 20px;
+      padding: 8px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      background: #c0c0c0;
+      border: 2px outset white;
+    }
+  </style>
+</head>
+<body>
+
+<div id="wizard">
+  <h2>Install Wizard</h2>
+  <p id="wizard-text">Welcome to Nebula Software Setup!</p>
+  <button id="wizard-button" onclick="nextStep()">Next ></button>
+</div>
+
+<script>
+let step = 0;
+
+function nextStep() {
+  const text = document.getElementById('wizard-text');
+  const button = document.getElementById('wizard-button');
+
+  if (step === 0) {
+    text.innerText = "Installing components...";
+    button.innerText = "Install";
+  } else if (step === 1) {
+    text.innerText = "Installation complete!";
+    button.innerText = "Finish";
+  } else {
+    alert("Nebula Software installed successfully!");
+    parent.document.getElementById('start-menu').style.display = 'none';
+    window.frameElement.parentNode.remove();
+  }
+
+  step++;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="../css/apps.css">
+</head>
+<body>
+  <input id="taskInput" type="text" placeholder="New task..." style="width:100%; margin-bottom:10px;">
+  <button onclick="addTask()">Add Task</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    const taskInput = document.getElementById('taskInput');
+    const taskList = document.getElementById('taskList');
+
+    function addTask() {
+      if (taskInput.value.trim() !== '') {
+        const li = document.createElement('li');
+        li.textContent = taskInput.value;
+        li.onclick = () => {
+          li.remove();
+          saveTasks();
+        };
+        taskList.appendChild(li);
+        saveTasks();
+        taskInput.value = '';
+      }
+    }
+
+    function saveTasks() {
+      localStorage.setItem('nebula_tasks', taskList.innerHTML);
+    }
+
+    taskList.innerHTML = localStorage.getItem('nebula_tasks') || '';
+  </script>
+</body>
+</html>
