@@ -8,7 +8,7 @@ An interactive, retro-style web-based desktop simulation, featuring draggable wi
 ---
 
 ## 🚀 Live Demo
-Try it on:  
+Try it on:  [https://dikshantpandey-dev.github.io/nebula-os/](https://dikshantpandey-dev.github.io/nebula-os/)
 
 ---
 
